@@ -1,0 +1,23 @@
+html{
+    font-family: "微软雅黑",sans-serif;
+    font-size: 20px;
+}
+ul{
+    list-style: none;
+    padding-left: 0;
+}
+span.item-title{
+    font-weight: bolder;
+    padding-right:1rem;
+}
+ul.horizontal-version li{
+    display: inline;
+    padding: 0 2rem 0 0;
+}
+ul.verticle-version li{
+    margin-bottom: 1rem;
+}
+ul.verticle-version li span{
+    display: block;
+    margin-bottom: 0.5rem;
+}

@@ -41,3 +41,11 @@ body {
     background: #65a5fa;
     margin: 0;  
 }
+button {
+    clear: both;
+    font-size: 1rem;
+    padding: 10px;
+    border-radius: 10px;
+    color: aliceblue;
+    background: #2f435e;
+}

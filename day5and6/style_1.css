@@ -20,3 +20,11 @@ ul.verticle-version li span {
     display: block;
     margin-bottom: 0.5rem;
 }
+button {
+    clear: both;
+    font-size: 1rem;
+    padding: 10px;
+    border-radius: 10px;
+    color: aliceblue;
+    background: #2f435e;
+}

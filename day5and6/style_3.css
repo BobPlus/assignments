@@ -51,3 +51,11 @@ article h2 {
 ul[class*="version"] {
     margin:1rem 0 0 11rem;
 }
+button {
+    clear: both;
+    font-size: 1rem;
+    padding: 10px;
+    border-radius: 10px;
+    color: aliceblue;
+    background: #2f435e;
+}

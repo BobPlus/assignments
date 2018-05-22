@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Flex实现两栏布局，左侧占30%宽度，右侧占70%宽度</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            margin: 0;
+        }
+        .left-box {
+            background: green;
+            flex:3;
+            height: 200px;
+        }
+        .right-box {
+            background: red;
+            flex:7;
+            height: 100px;
+        }
+        .container {
+            display: flex;
+            outline: 3px dotted black;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="left-box">我是弹性左边的盒子，占30%宽度</div>
+        <div class="right-box">我是弹性的右边的盒子，占70%宽度</div>
+    </div>
+    <footer>Flex实现两栏布局，左侧占30%宽度，右侧占70%宽度,完美无缺陷</footer>
+</body>
+</html>

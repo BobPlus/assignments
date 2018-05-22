@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Position实现两栏布局，左侧占30%宽度，右侧占70%宽度</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            margin: 0;
+        }
+        .left-box {
+            position: absolute;
+            background: green;
+            width: 30%;
+            height: 200px;
+            top: 0;
+            left: 0;
+        }
+        .right-box {
+            background: red;
+            width: 70%;
+            height: 100px;
+            position: relative;
+            top: 0;
+            left: 30%;
+        }
+        
+        .container {
+            outline: 3px dotted black;
+            position: relative;
+            height: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="left-box">我是绝对定位的左边的盒子，占30%宽度</div>
+        <div class="right-box">我是相对定位的右边的盒子，占70%宽度</div>
+    </div>
+    <footer>Position实现两栏布局，左侧占30%宽度，右侧占70%宽度，缺点是父元素高度需要给出，无法自适应</footer>
+</body>
+</html>

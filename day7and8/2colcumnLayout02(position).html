@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Position实现两栏布局，左侧定宽右侧自适应</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            margin: 0;
+        }
+        .left-box {
+            position: absolute;
+            background: green;
+            width: 200px;
+            height: 200px;
+            top: 0;
+            left: 0;
+        }
+        .right-box {
+            background: red;
+            height: 100px;
+            position: relative;
+            top: 0;
+            left: 200px;
+            width: calc(100% - 200px);
+        }
+        .container {
+            outline: 3px dotted black;
+            position: relative;
+            height: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="left-box">我是绝对定位的左边的盒子，占200px宽度</div>
+        <div class="right-box">我是相对定位的右边的盒子，宽度自适应</div>
+    </div>
+    <footer>Position实现两栏布局，左侧定200px宽，右侧自适应，缺点需要使用calc设定右侧盒子宽</footer>
+</body>
+</html>

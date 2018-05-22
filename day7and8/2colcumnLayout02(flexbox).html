@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Flex实现两栏布局，左侧定宽右侧自适应</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            margin: 0;
+        }
+        .left-box {
+            background: green;
+            height: 400px;
+            flex:0 0 200px;
+
+        }
+        .right-box {
+            background: red;
+            flex:1 1 auto;
+            height: 200px;
+        }
+        .container {
+            display: flex;
+            outline: 3px dotted black;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="left-box">我是弹性左边的盒子，定宽200px</div>
+        <div class="right-box">我是弹性的右边的盒子，根据浏览器宽度进行自适应变化</div>
+    </div>
+    <footer>Flex实现两栏布局，左侧定宽右侧自适应，无缺点</footer>
+</body>
+</html>

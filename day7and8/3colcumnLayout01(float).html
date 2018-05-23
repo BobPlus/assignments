@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Float实现一个三栏布局，左侧固定宽度，右侧固定宽度，中间部分宽度随浏览器宽度变化而自适应变化</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        * {
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        .left-box {
+            background: green;
+            height: 400px;
+            float: left;
+            margin-left: -100%;
+            width: 200px;
+        }
+
+        .middle-box {
+            float: left;
+            width: 100%;
+        }
+
+        div.middle-box div {
+            background: yellow;
+            height: 500px;
+            margin-left: 200px;
+            margin-right: 300px;
+
+        }
+
+        .right-box {
+            background: red;
+            float: left;
+            height: 200px;
+            width: 300px;
+            margin-left: -300px;
+        }
+
+        .container {
+            outline: 3px dotted black;
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="middle-box">
+            <div>我是浮动中间边的盒子，宽度自适应，我在文档结构上必须靠前</div>
+        </div>
+        <div class="left-box">我是浮动左边的盒子，定宽200px</div>
+        <div class="right-box">我是浮动右边的盒子，定宽300px</div>
+    </div>
+    <footer>Float实现一个三栏布局，左侧固定宽度，右侧固定宽度，中间部分宽度随浏览器宽度变化而自适应变化, 浏览器压缩的很小时，布局会出问题
+    </footer>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Flex实现一个三栏布局，左侧固定宽度，右侧固定宽度，中间部分宽度随浏览器宽度变化而自适应变化</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        * {
+            margin: 0;
+            box-sizing: border-box;
+        }
+        .left-box {
+            background: green;
+            height: 400px;
+            flex: 0 0 200px;
+        }
+        .middle-box {
+            background: yellow;
+            flex: 1 1 auto;
+            height: 500px;
+        }      
+        .right-box {
+            background: red;
+            float: left;
+            height: 200px;
+            flex: 0 0 300px;
+        }
+        .container {
+            outline: 3px dotted black;
+            display: flex;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="left-box">我是弹性左边的盒子，定宽200px</div>
+        <div class="middle-box">我是弹性中间边的盒子，宽度自适应</div>
+        <div class="right-box">我是弹性右边的盒子，定宽300px</div>
+    </div>
+    <footer>Flex实现一个三栏布局，左侧固定宽度，右侧固定宽度，中间部分宽度随浏览器宽度变化而自适应变化,
+         浏览器压缩的很小时，容器宽度总是继承窗口宽度导致子元素宽度之和大于容器
+    </footer>
+</body>
+</html>

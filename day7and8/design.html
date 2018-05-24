@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>design</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* 通配样式设置 */
+
+        header {
+            background: #333333;
+            color: white;
+            height: 80px;
+        }
+
+        header>div {
+            width: 960px;
+            margin: 0 auto;
+            position: relative;
+            height: inherit;
+        }
+
+        div.logo {
+            font-size: 25px;
+            height: inherit;
+            line-height: 80px;
+        }
+
+        ul.head-nav {
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+
+        ul.head-nav li {
+            float: left;
+            margin-right: 10px;
+            padding-top: 10px;
+        }
+
+        ul.head-nav a {
+            color: aliceblue;
+        }
+
+        /* 头部样式设置 */
+
+        section.banner {
+            background: #66bb33;
+        }
+
+        section>div {
+            position: relative;
+            width: 960px;
+            height: 300px;
+            margin: 0 auto;
+        }
+
+        section.banner ul {
+            position: absolute;
+            right: 0;
+            bottom: 10px;
+            display: flex;
+            height: 54px;
+            align-items: flex-end;
+        }
+
+        section.banner ul li {
+            background: #b2dd99;
+            margin-right: 10px;
+            padding: 12px;
+            border: 1px solid black;
+            font-size: 14px;
+            height: 40px;
+        }
+
+        section.banner ul li.selected {
+            background: #e0f1d6;
+            height: 54px;
+            padding-top: 26px;
+        }
+
+        section.banner a {
+            text-decoration: none;
+        }
+
+        /* 图片栏样式设置 */
+
+        nav::before {
+            display: block;
+            content: "";
+            height: 70px;
+            border-bottom: 1px solid #dddddd;
+        }
+
+        nav ul {
+            width: 960px;
+            margin: -50px auto 0px;
+            overflow: hidden;
+        }
+
+        nav ul li {
+            background: #eeeeee;
+            float: left;
+            width: 100px;
+            height: 50px;
+            border: 1px solid#dddddd;
+            text-align: center;
+            line-height: 50px;
+            font-size: 14px;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+        }
+
+        nav ul li.selected {
+            background: #ffffff;
+            border-bottom: none;
+        }
+
+        ul.main-nav a {
+            text-decoration: none;
+            color: black;
+        }
+
+        /* 导航栏样式设置 */
+
+        section.main-content div {
+            width: 960px;
+            margin: 0 auto;
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: space-between;
+            height: 900px;
+        }
+
+        section.main-content article {
+            margin: 10px;
+            padding: 80px;
+            text-align: center;
+            border: #dddddd solid 1px;
+        }
+
+        /* 主内容样式设置 */
+
+        footer {
+            height: 120px;
+            background: #666666;
+            color: white;
+            text-align: center;
+            padding-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div>
+            <div class="logo">Logo</div>
+            <ul class="head-nav">
+                <li>
+                    <a href="">Github</a>
+                </li>
+                <li>
+                    <a href="">Register</a>
+                </li>
+                <li>
+                    <a href="">Login</a>
+                </li>
+            </ul>
+        </div>
+    </header>
+    <section class="banner">
+        <div>
+            <ul class="banner-nav">
+                <li>
+                    <a href="">1</a>
+                </li>
+                <li class="selected">
+                    <a href="">2</a>
+                </li>
+                <li>
+                    <a href="">3</a>
+                </li>
+                <li>
+                    <a href="">4</a>
+                </li>
+            </ul>
+        </div>
+
+    </section>
+    <nav>
+        <ul class="main-nav">
+            <li class="selected">
+                <a href="">HOME</a>
+            </li>
+            <li>
+                <a href="">PROFILE</a>
+            </li>
+            <li>
+                <a href="">ABOUT</a>
+            </li>
+        </ul>
+    </nav>
+    <section class="main-content">
+        <div>
+            <article>This is Content 1</article>
+            <article>Maybe Content 2</article>
+            <article>Content 3</article>
+            <article>Content 4</article>
+            <article>Content 5</article>
+            <article>Content 6</article>
+            <article>Content 7</article>
+            <article>Content 8</article>
+            <article>Content 9</article>
+            <article>Content 10</article>
+        </div>
+
+    </section>
+    <footer>
+        <p>2018 ife.baidu.com</p>
+    </footer>
+</body>
+
+</html>

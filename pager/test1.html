@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>test1</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="pager.css" />
+</head>
+
+<body>
+    <div>测试页面一</div>
+    <div class="pager">
+        <ul>
+            <li class="prev">
+                <a href=""></a>
+                <</li>
+                    <li class="cursor">
+                        <a href=""></a>1</li>
+                    <li class="cursor">
+                        <a href=""></a>2</li>
+                    <li class="cursor">
+                        <a href=""></a>3</li>
+                    <li class="next">
+                        <a href=""></a>></li>
+        </ul>
+    </div>
+    <script src="util.js"></script>
+    <script src="pager.js"></script>
+    <script>
+        var $ = function (selector) {
+            return [].slice.call(document.querySelectorAll(selector))
+        }
+
+        var cursors = $(".pager .cursor");
+        var prev = $(".pager .prev")[0];
+        var next = $(".pager .next")[0];
+
+        cursors.forEach(function (cursor, index) {
+            cursor.addEventListener("click", function () {
+                pager.redirect(index);
+                console.log("您打开的页码为：第" + index + "页。");
+            })
+        })
+
+        prev.addEventListener("click", function () {
+            pager.prev()
+        })
+        next.addEventListener("click", function () {
+            pager.next()
+        })
+
+        var pager = new Pager({
+            //视口容器
+            container: document.body,
+            // 图片列表
+            links: [
+                "http://study.163.com",
+                "https://music.163.com",
+                "http://www.163.com",
+                "https://www.baidu.com",
+                "https://www.jd.com",
+                "https://www.taobao.com"
+            ]
+        });
+    </script>
+</body>
+
+</html>

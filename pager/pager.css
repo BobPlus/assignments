@@ -1,0 +1,41 @@
+html,body{
+  height:100%;
+  width:100%;
+  padding:0;
+  margin:0;
+}
+ul{
+  list-style: none;
+  padding: inherit;
+}
+div:first-child{
+    text-align: center;
+    margin:20% auto 0;
+    font-size: xx-large;
+}
+.pager{
+  text-align: center;
+  position: fixed;
+  bottom: 10px;
+  left: 0;
+  padding-left: 0;
+  width: 100%;
+}
+.pager li{
+  width: 20px;
+  height: 20px;
+  color: #aaa;
+  line-height: 20px;
+  border-radius: 50%;
+  border: 2px solid #999;
+  margin-right: 6px;
+  display: inline-block;
+  cursor: pointer;
+}
+.pager li:hover, .pager li.z-active{
+  background-color: #999;
+  color: #fff;
+}
+.pager li.prev, .pager li.next{
+  font-family: '宋体';
+}

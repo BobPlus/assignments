@@ -6,12 +6,12 @@ html,body{
 }
 ul{
   list-style: none;
-  padding: inherit;
+  padding: 0;
 }
 div:first-child{
     text-align: center;
-    margin:20% auto 0;
-    font-size: xx-large;
+    margin: 300px auto 0;
+    font-size: 200px;
 }
 .pager{
   text-align: center;
@@ -28,7 +28,7 @@ div:first-child{
   line-height: 20px;
   border-radius: 50%;
   border: 2px solid #999;
-  margin-right: 6px;
+  margin-right: 10px;
   display: inline-block;
   cursor: pointer;
 }

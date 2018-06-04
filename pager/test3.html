@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>test3</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="pager.css" />
+</head>
+
+<body>
+    <div>页面三</div>
+    <!-- <div class="pager">
+        <ul>
+            <li class="prev cursor"><</li>
+            <li class="cursor">1</li>
+            <li class="cursor">2</li>
+            <li class="cursor">3</li>
+            <li class="next cursor">></li>
+        </ul>
+    </div> -->
+    <script src="util.js"></script>
+    <script src="pager.js"></script>
+    <script>
+        var $ = function (selector) {
+            return [].slice.call(document.querySelectorAll(selector))
+        }
+
+        var pager = new Pager({
+            //视口容器
+            container: document.body,
+            // 图片列表
+            links: [
+                "test1.html",
+                "test2.html",
+                "test3.html"
+            ]
+        });
+        var cursors = $(".pager .cursor");
+        var prev = $(".pager .prev")[0];
+        var next = $(".pager .next")[0];
+        for (let i = 0; i < cursors.length; i++) {
+            cursors[i].index = i + 1;
+            cursors[i].addEventListener("click", function () {
+                pager.nav(cursors[i].index);
+                console.log("您打开的页码为：第" + cursors[i].index + "页。");
+            })
+        }
+        prev.addEventListener("click", function () {
+            pager.prev()
+        })
+        next.addEventListener("click", function () {
+            pager.next()
+        })
+    </script>
+</body>
+
+</html>

@@ -40,6 +40,7 @@
         var cursors = $(".pager .cursor");
         var prev = $(".pager .prev")[0];
         var next = $(".pager .next")[0];
+        localStorage.setItem("nowIndex", "2");
         for (let i = 0; i < cursors.length; i++) {
             cursors[i].index = i + 1;
             cursors[i].addEventListener("click", function () {

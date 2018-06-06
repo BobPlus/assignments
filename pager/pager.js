@@ -58,12 +58,30 @@
             window.open(this.links[pageIndex-1],"_self");
         },
         //上一页
-        prev: function (params) {
-            
+        prev: function () {
+            var pageNum = this.pageNum;
+            var nowIndex = parseInt(localStorage.getItem("nowIndex"));
+            if (nowIndex == 1) {
+                localStorage.setItem("nowIndex",pageNum);
+                window.open(this.links[pageNum-1], "_self");
+            } else {
+                nowIndex--;
+                localStorage.setItem("nowIndex", nowIndex);
+                window.open(this.links[nowIndex - 1], "_self");
+            }   
         },
         //下一页
-        next: function (params) {
-            
+        next: function () {
+            var pageNum = this.pageNum;
+            var nowIndex = parseInt(localStorage.getItem("nowIndex"));
+            if(nowIndex == pageNum){
+                localStorage.setItem("nowIndex", "1");
+                window.open(this.links[0], "_self");
+            }else{
+                nowIndex++;
+                localStorage.setItem("nowIndex", nowIndex);
+                window.open(this.links[nowIndex-1], "_self");
+            }
         }
     });
     

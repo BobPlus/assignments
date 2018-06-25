@@ -1,0 +1,424 @@
+/* 通用部分 */
+html,body{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background:#282828;
+    font-family: Helvetica,Tahoma,Arial,Sans-serif;
+}
+div.main{
+    width: 1600px;
+    margin: 0 auto;
+    background: #ffffff;
+}
+/* 头样式 */
+div.main>header{
+    background: url("images/header.png") 0 0 no-repeat;
+    color:white;
+    padding: 200px 0px 190px;
+}
+
+header h1{
+    margin: 0;
+    font: lighter 62px "Open Sans",Sans-serif;
+    padding: 0px 0px 85px;
+    text-align: center; 
+}
+header p{
+    margin: 0;
+    padding: 0 440px 95px;
+    opacity: 0.8;
+    line-height: 1.4em;
+    font-size:20px;
+    text-align: center;
+}
+header form{
+    border: 1px solid rgba(255, 255, 255, 0.3);  
+    margin: 0px 315px;
+    padding: 60px 100px 50px;
+}
+header form>legend:nth-child(1){
+    letter-spacing: 3px;
+    text-align: center;
+    font-size: 16px;
+    padding: 0px 0px 20px;
+}
+header form>legend:nth-child(2){
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.5);
+    padding:0px 0px 40px;
+    text-align: center;
+}
+header form input{
+    width:37% ;
+    line-height: 46px;
+    background-color: transparent;  
+    border: 1px solid rgba(255, 255, 255, 0.3);  
+}
+header form>input:nth-child(2){
+    margin-left: 5%;
+}
+header form button{
+    margin-left: 3%;
+    width: 16%;
+    line-height: 46px;   
+    border-radius: 3px;
+    border: 1px solid white;  
+    background: white;
+    color: black;
+    font-weight: 500;
+    letter-spacing: 2px;
+}
+/* 导航栏样式 */
+nav{
+    background: #ffffff;
+    color: black;
+    margin: 0;
+}
+nav>p:nth-child(1){
+    margin: 0;
+    padding: 80px 0px 0px;
+    font: 600 14px sans-serif;
+    text-align: center;
+    letter-spacing: 2px;
+}
+nav>p:nth-child(2){
+    margin: 0;
+    padding: 30px 420px 0px;
+    font:300 42px sans-serif;
+    text-align: center;
+    letter-spacing: 1px;
+}
+div.main-nav{
+    display: grid;
+    grid-gap: 70px;
+    grid-template-columns: repeat(2,1fr);
+    grid-template-rows: repeat(2,1fr);
+    padding: 80px 270px;
+}
+div.nav1{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+div.nav2{
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;   
+}
+div.nav3{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 3;   
+}
+div.nav4{
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 3;      
+}
+div.main-nav>div>div{
+    width: 65px;
+    height: 65px;
+    float: left; 
+}
+div.nav1>div{
+    background: url("images/icons.png") 0px 0px no-repeat;
+}
+div.nav2>div{
+    background: url("images/icons.png") 0px -80px no-repeat;
+}
+div.nav3>div{
+    background: url("images/icons.png") 0px -160px no-repeat;
+}
+div.nav4>div{
+    background: url("images/icons.png") 0px -255px no-repeat;
+}
+div.nav1>p:nth-child(2),div.nav2>p:nth-child(2),div.nav3>p:nth-child(2),div.nav4>p:nth-child(2){
+    margin: 0;
+    margin-left:65px;
+    font:500 20px sans-serif; 
+}
+div.nav1>p:nth-child(3),div.nav2>p:nth-child(3),div.nav3>p:nth-child(3),div.nav4>p:nth-child(3){
+    margin: 0;
+    margin-left:65px;
+    font:300 16px sans-serif;
+    padding:20px 20px 0px 0px;
+    line-height: 25px; 
+}
+/* 介绍栏样式 */
+section.intro-bar{
+    background: url("images/bg2.png") 0px 0px no-repeat;
+    position: relative;
+}
+div.right-pic{
+    position: absolute;
+    left:868px; 
+    top:100px;
+    width: 732px;
+    height: 600px;
+    border-radius: 40px 0px 0px 40px;
+    border: 1px solid white;
+    border-right: 0 none;
+}
+div.right-pic>div{
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    top: 295px;
+    left: 35px;
+    border-radius: 10px;
+    border: 1px solid white;  
+}
+div.right-pic>img{
+    content: url("images/Screen.png");
+    padding: 30px 0px 3px 80px;
+}
+section.intro-bar>p:nth-child(2){
+    margin: 0;
+    font:300 42px sans-serif;
+    padding:170px 1020px 0px 200px;
+    color: white;
+}
+section.intro-bar>p:nth-child(3){
+    margin: 0;
+    font:300 18px sans-serif;
+    padding:40px 1020px 0px 200px;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.4em;
+}
+section.intro-bar>div:nth-child(4){
+    margin: 0;
+    padding: 60px 0px 177px 200px;
+}
+section.intro-bar>div:nth-child(4) button{
+    width: 240px;
+    height: 60px;   
+    border-radius: 1px;
+    border: 1px solid white;  
+    background: transparent;
+    color: white;
+    font: 500 12px sans-serif;
+}
+section.intro-bar>div:nth-child(4)>button:nth-child(2){
+    margin-left: 30px;
+}
+/* 推销栏样式 */
+section.sales-bar{
+    border-bottom:1px solid rgba(0, 0, 0, 0.1);
+}
+section.sales-bar>header{
+    margin: 0;
+    padding: 100px 0px 0px;
+    font:300 42px sans-serif;
+    text-align: center;
+}
+div.main-sales{
+    margin: 0;
+    padding: 85px 300px 0px;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+div.main-sales>article>div{
+    width: 140px;
+    height: 40px;
+    margin: 0 auto;
+}
+div.main-sales>article:nth-child(1)>div{
+    background: url("images/icons.png") 8px -350px no-repeat;
+}
+div.main-sales>article:nth-child(2)>div{
+    background: url("images/icons.png") 15px -435px no-repeat;
+}
+div.main-sales>article:nth-child(3)>div{
+    background: url("images/icons.png") 10px -505px no-repeat;
+}
+div.main-sales p{
+    margin: 0;
+    padding: 30px 40px 80px;
+    font: 300 16px sans-serif;
+    line-height: 25px;
+}
+/* 图片栏样式 */
+section.pics-bar{
+    padding: 110px 315px 140px;
+    position: relative;
+    border-bottom:1px solid rgba(0, 0, 0, 0.1);
+}
+section.pics-bar>article>div{
+    width: 570px;
+    height: 350px;
+    position: absolute;
+}
+section.pics-bar article{
+    position: relative;
+    padding-top: 70px;
+    height: 355px;
+}
+section.pics-bar>article:nth-child(1){
+    padding-left: 665px;
+}
+section.pics-bar>article:nth-child(2){
+    padding-right: 665px;
+}
+section.pics-bar header{
+    font:500 20px sans-serif; 
+}
+section.pics-bar p{
+    font:300 16px sans-serif; 
+}
+section.pics-bar>article:nth-child(1)>div{
+    background: url("images/pics.png") 0px 0px no-repeat;
+    top: 0;
+    left:0;
+}
+section.pics-bar>article:nth-child(2)>div{
+    background: url("images/pics.png") 0px -434px no-repeat;
+    right: 0;
+    top: 0;
+}
+/* 人物栏样式 */
+section.crew{
+    border-bottom:1px solid rgba(0, 0, 0, 0.1);
+    padding-bottom: 190px;
+}
+section.crew>header{
+    font: 300 42px sans-serif;
+    text-align: center;
+    margin: 90px auto 0;
+    
+}
+section.crew>p{
+    font:300 18px sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 30px 445px 0px;
+}
+div.main-crew{
+    display: grid;
+    grid-gap: 30px;
+    grid-template-columns: repeat(2,1fr);
+    grid-template-rows: repeat(2,1fr);
+    padding: 60px 310px;
+}
+div.main-crew>div{
+    width: 470px;
+    height: 340px;
+}
+div.main-crew>div:nth-child(1){
+    background: url("images/folks.png") 0px 0px no-repeat;
+}
+div.main-crew>div:nth-child(2){
+    background: url("images/folks.png") -520px 0px no-repeat;
+}
+div.main-crew>div:nth-child(3){
+    background: url("images/folks.png") 0px -460px no-repeat;
+}
+div.main-crew>div:nth-child(4){
+    background: url("images/folks.png") -520px -460px no-repeat;
+}
+/* 联系栏样式 */
+section.contacts{
+    position: relative;
+    padding-bottom: 70px;   
+}
+section.contacts>form{
+    display: flex;
+    flex-flow: column nowrap;
+    margin: 70px auto 0px 315px;
+    width: 470px;
+    height: 560px;
+    border:1px solid rgba(0, 0, 0, 0.1); 
+    border-radius: 10px;
+}
+section.contacts>form>legend{
+    font: 600 16px sans-serif;
+    text-align: center;
+    margin-top: 50px;
+    letter-spacing: 2px;   
+}
+section.contacts>form>input{
+    line-height: 46px;
+    font-size: 14px;
+    border:1px solid rgba(0, 0, 0, 0.1); 
+    margin: 30px 50px 0px;
+    text-indent: 20px;
+}
+section.contacts>form input:nth-child(4){
+    height: 140px;
+}
+section.contacts>form>input[type="button"]{
+    font-size: 12px;
+    text-align: center;
+    color: white;
+    background: black;
+    letter-spacing: 2px;
+    text-indent: 0;
+}
+section.contacts>aside{
+    display: flex;
+    flex-flow: column nowrap;
+    width:360px;
+    position: absolute;
+    top: 90px;
+    left: 910px;
+}
+section.contacts>aside>header{
+    font: 300 42px sans-serif;
+}
+section.contacts>aside>p{
+    font: 300 16px sans-serif;
+    margin: 35px 0px 0px;
+}
+section.contacts>aside>div{
+    margin: 65px 0px 0px;
+}
+section.contacts>aside>div>p{
+    font: 500 16px sans-serif;
+    line-height: 1.5;
+    padding: 15px 0px 15px 40px;
+    margin: 0px;
+}
+section.contacts>aside>div>p.map{
+    background: url("images/icons.png") -187px -295px no-repeat;
+}
+section.contacts>aside>div>p.phone{
+    background: url("images/icons.png") -187px -390px no-repeat;
+}
+section.contacts>aside>div>p.email{
+    background: url("images/icons.png") -187px -485px no-repeat;
+}
+/* 页脚样式 */
+footer{
+    color: white;
+    background: black;
+    padding: 80px 200px 100px;
+}
+footer>div{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+footer>div>article{
+    flex-grow: 1;
+    display: flex;
+    flex-flow: column nowrap;
+}
+footer>div>article:nth-child(4){
+    background: url("images/icons.png") -5px -465px no-repeat;
+}
+footer>div>article>header{
+    font:300 14px sans-serif;
+    letter-spacing: 2px;
+}
+footer>div>article>a{
+    color: rgba(255, 255, 255, 0.5);
+    text-decoration: none;
+    font:300 16px sans-serif;
+    margin-top: 30px;
+}

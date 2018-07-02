@@ -1,0 +1,507 @@
+/* 通用样式 */
+html,body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/*侧边栏一样式*/
+aside.menu{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    background: #1d2531;
+    width: 100px;
+}
+aside.menu>div{
+    width: 58px;
+    height: 58px;
+    margin: 20px 20px 0px;
+    border: 1px solid transparent;
+    border-radius:50%;
+    position: fixed; 
+}
+aside.menu>div:nth-child(1){
+    background: url(images/icons.png) 15px 18px no-repeat;
+    background-color: #2a9ef6;
+}
+aside.menu>div:nth-child(2){
+    background: url(images/icons.png) 13px -34px no-repeat;
+    background-color: #9581e3;
+    top: 80px;
+    left: 0px;
+}
+aside.menu>div:nth-child(3){
+    background: url(images/icons.png) 13px -85px no-repeat;
+    background-color: #f15034;
+    top: 160px;
+    left: 0px;
+}
+aside.menu>div:nth-child(4){
+    top: 240px;
+    left: 0px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+aside.menu>div:nth-child(4)::after{
+    content: "+";
+    color: rgba(255, 255, 255, 0.3);
+    font: 300 40px sans-serif;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    text-indent: 15px;
+}
+aside.menu>footer{
+    position: fixed;
+    width: 100px;
+    height: 28px;
+    left: 0;
+    bottom: 10px;
+}
+aside.menu>footer>span{
+    position: absolute;
+}
+aside.menu>footer>span:nth-child(1){
+    background: url(images/icons.png) 15px -162px no-repeat;
+    left:0px;
+    right: 50%;
+    top:0;
+    bottom: 0;
+}
+aside.menu>footer>span:nth-child(2){
+    background: url(images/icons.png) 0px -194px no-repeat;
+    left: 50%;
+    right: 0px;
+    top:0;
+    bottom: 0;
+}
+/*侧边栏二导航样式*/
+.show{
+    display: block;
+    /* 用以打开关闭菜单栏 */
+}
+.hide{
+    display: none;
+    /* 用以打开关闭菜单栏 */
+}
+nav{
+    width: 250px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 100px;
+    background-color: #222c3c;
+    color: rgba(255, 255, 255, 0.4);
+    font: 600 14px sans-serif;
+}
+nav>div.main-nav>article{
+    margin:0 auto;
+    width: 200px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 20px 0px;
+}
+nav>div.main-nav>article:nth-child(1){
+    border:none 0;
+}
+div.main-nav>article>header{
+    background: url(images/icons.png) 175px -194px no-repeat;
+}
+div.main-nav>article>ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+div.main-nav>article>ul>li{
+    margin-top: 20px;
+}
+div.main-nav>article>ul>li>a{
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.6);
+}
+div.main-nav>article:nth-child(2)>ul>li{
+    padding-left: 30px;
+}
+div.main-nav>article:nth-child(2)>ul>li:nth-child(1){
+    background: url(images/icons2.png) 0px 0px no-repeat;
+}
+div.main-nav>article:nth-child(2)>ul>li:nth-child(2){
+    background: url(images/icons2.png) 2px -45px no-repeat;
+}
+div.main-nav>article:nth-child(2)>ul>li:nth-child(3){
+    background: url(images/icons2.png) 0px -100px no-repeat;
+}
+div.main-nav>article:nth-child(2)>ul>li:nth-child(4){
+    background: url(images/icons2.png) 0px -156px no-repeat;
+}
+nav>footer{
+    position: fixed;
+    left: 125px;
+    bottom: 20px;
+}
+nav>footer>p{
+    color: rgba(255, 255, 255, 0.6);
+}
+nav>footer>div{
+    height: 4px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 2px; 
+}
+nav>footer>div>span{
+    position: absolute;
+    height: 4px;
+    width: 40px;
+    background: linear-gradient(to right,#7f5ce6,#9c8ee3);
+    border-radius: 2px;
+}
+/*右侧白色区域样式*/
+section.messages{
+    position: absolute;
+    left: 350px;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: white;
+    min-width: 915px;
+}
+/* 头部区域 */
+section.messages>header{
+    position: fixed;
+    top: 0;
+    left: 350px;
+    right: 0;
+    min-width: 915px;
+}
+section.messages>header>div.header{
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+section.messages>header>div.header>span:nth-child(1){
+    font: 300 24px sans-serif;
+    line-height: 80px;
+    padding-left: 30px;
+}
+section.messages>header>div.header>div.folks{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    padding: 0px 50px 0px 70px;
+}
+section.messages>header>div.header>div.folks img{
+    content: url("images/jordan.png");
+    position: absolute;
+    clip-path: circle(26px at 26px 26px);
+    top: 11px;
+    left: 0px;
+}
+section.messages div.header div.folks:after{
+    content: "o";
+    color: #38a76a;
+    font: 800 30px sans-serif;
+    position: absolute;
+    bottom: 11px;
+    left: 32px;
+}
+section.messages div.header div.folks>p:nth-child(2){
+    font: 600 16px sans-serif;
+    color: #2399f1;
+    margin: 20px 0px 3px;
+}
+section.messages div.header div.folks>p:nth-child(3){
+    font: 600 14px sans-serif;
+    color: #b5b5b5;
+    margin: 0;
+}
+section.messages div.header div.folks>span{
+    position: absolute;
+    right: 10px;
+    top: 32px;
+    font: 600 16px sans-serif;
+    color: #b5b5b5;
+    writing-mode: vertical-lr;
+}
+header>div.search{
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+    width: 400px;
+    box-sizing: border-box;
+    line-height: 70px;
+    vertical-align: middle;
+    text-align: center;
+    position: relative;
+}
+header>div.search>input{
+    padding: 0;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    width:340px;
+    height: 36px;
+    border-radius: 5px;
+    font: 500 14px sans-serif;
+    text-indent: 16px;
+    color: rgba(0, 0, 0, 0.1);
+}
+header>div.search>button{
+    position: absolute;
+    width: 36px;
+    height: 36px;
+    background: url(images/icons.png) -4px -230px no-repeat;
+    border:0 none;
+    bottom: 14px;
+    right: 30px;
+}
+div.tools{
+    position: absolute;
+    left: 400px;
+    right: 0;
+    top: 81px;
+    bottom: 0;
+    min-width: 515px;
+}
+div.tools>span{
+    font: 600 18px sans-serif;
+    color: rgba(0, 0, 0, 0.5);
+    line-height: 70px;
+    padding-left: 30px;
+}
+div.tools>span::after{
+    content: " ·";
+    color: #1bb934;
+    font: 600 30px sans-serif;
+    vertical-align: middle;
+}
+div.tools>div{
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    vertical-align: middle;
+    line-height: 70px;
+}
+div.tools>div span{
+    display: inline-block;
+}
+div.tools>div>span.l-t{
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    vertical-align: middle;
+    line-height: 10px;
+    background-color: rgba(250, 250, 252, 1);
+}
+div.tools>div>span.l-t>span{
+    width: 35px;
+    height: 30px;
+}
+div.tools>div>span.l-t>span:nth-child(1){
+    background: url(images/icons.png) 0px -275px no-repeat;
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+}
+div.tools>div>span.l-t>span:nth-child(2){
+    background: url(images/icons.png) -3px -321px no-repeat;
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+}
+div.tools>div>span.l-t>span:nth-child(3){
+    background: url(images/icons.png) -3px -376px no-repeat;
+}
+div.tools>div>span.m-t{
+    font: 600 14px sans-serif;
+    margin-left: 25px;
+    color: rgba(0, 0, 0, 0.4);
+    padding-left: 20px;
+    border-left: 1px solid rgba(0, 0, 0, 0.1);
+}
+div.tools>div>span.r-t{
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    vertical-align: middle;
+    line-height: 10px;
+    background-color: rgba(250, 250, 252, 1);
+    margin: 0px 20px 0px 25px;
+}
+div.tools>div>span.r-t>span{
+    width: 35px;
+    height: 30px;
+}
+div.tools>div>span.r-t>span:nth-child(1){
+    background: url(images/icons.png) 0px -419px no-repeat;
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+}
+div.tools>div>span.r-t>span:nth-child(2){
+    background: url(images/icons.png) -3px -460px no-repeat;
+}
+/* 左侧边栏 */
+aside.aside-friends{
+    width: 400px;
+    position: absolute;
+    top: 151px;
+    bottom: 0;
+    left: 0px;
+    margin: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+aside>ul.friends{
+    position: absolute;
+    top: 0px;
+    bottom: 0;
+    left: 0px;
+    margin: 0;
+    padding: 0;
+    overflow: auto;
+    list-style: none;
+}
+aside>ul.friends>li{
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-left: 0 none;
+    border-top: 0 none;
+    position: relative;
+}
+aside>ul.friends>li>img{
+    position: absolute;
+    top: 16px;
+    left: 30px;
+    width: 46px;
+    height: 46px;
+    clip-path: circle(23px at 23px 23px);
+}
+aside>ul.friends>li:nth-child(1)>img{
+    content: url("images/Bessie.png");
+}
+aside>ul.friends>li:nth-child(2)>img{
+    content: url("images/Victor.png");
+}
+aside>ul.friends>li:nth-child(3)>img{
+    content: url("images/Dustin.png");
+}
+aside>ul.friends>li:nth-child(4)>img{
+    content: url("images/Jack.png");
+}
+aside>ul.friends>li:nth-child(5)>img{
+    content: url("images/Stephen.png");
+}
+aside>ul.friends>li:nth-child(6)>img{
+    content: url("images/Sally.png");
+}
+aside>ul.friends>li:nth-child(7)>img{
+    content: url("images/Robert.png");
+}
+aside>ul.friends>li>div{
+    margin-left: 95px;
+}
+aside>ul.friends>li>div>p:nth-child(1){
+    font: 600 16px sans-serif;
+    color:rgba(0, 0, 0, 0.7);
+    margin: 0;
+    padding-top: 20px;
+}
+aside>ul.friends>li>div>p:nth-child(2){
+    font: 600 14px sans-serif;
+    color:rgba(0, 0, 0, 0.4);
+    margin: 0;
+    padding-top: 2px;
+}
+aside>ul.friends>li>div>p:nth-child(1)>span{
+    position: absolute;
+    right: 25px;
+    color: rgba(0, 0, 0, 0.4);
+}
+aside>ul.friends>li>p{
+    font: 500 14px sans-serif;
+    color:rgba(0, 0, 0, 0.5);
+    text-overflow: ellipsis;
+    overflow: hidden;
+    box-sizing: border-box;
+    height: 50px;
+    margin: 0;
+    margin: 15px 40px 5px 25px;
+    line-height: 1.7;
+}
+/* 右侧边栏 */
+aside.aside-talks{
+    position: absolute;
+    top: 151px;
+    bottom: 0;
+    left: 400px;
+    right: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+}
+aside.aside-talks>ul.talks{
+    margin: 0;
+    list-style: none;
+    padding: 0;
+}
+aside.aside-talks>ul.talks>li,div.new-messages{
+    position: relative;
+}
+aside.aside-talks>ul.talks>li>img,div.new-messages>img{
+    position: absolute;
+    top: 28px;
+    left: 30px;
+    width: 46px;
+    height: 46px;
+    clip-path: circle(23px at 23px 23px);
+}
+aside.aside-talks>ul.talks>li:nth-child(2n+1)>img,div.new-messages>img{
+    content: url("images/Bessie.png");
+}
+aside.aside-talks>ul.talks>li:nth-child(2n+0)>img{
+    content: url("images/jordan.png");
+}
+aside.aside-talks>ul.talks>li:nth-child(2n+0){
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+aside.aside-talks>ul.talks>li>article,div.new-messages>article{
+    margin-left: 95px;
+}
+aside.aside-talks header,div.new-messages header{
+    font: 600 16px sans-serif; 
+    padding: 28px 0px 0px;
+}
+aside.aside-talks header>span,div.new-messages header>span{
+    color: rgba(0, 0, 0, 0.4); 
+}
+aside.aside-talks li p{
+    margin: 10px 55px 30px 0px;
+    color: rgba(0, 0, 0, 0.4);
+    font: 500 14px sans-serif;
+    line-height: 1.5;
+}
+aside.aside-talks>ul.talks>li:nth-child(2n+1) p{
+    margin-bottom: 0px;
+}
+aside.aside-talks>ul.talks>li:nth-child(2)>span{
+    position: absolute;
+    bottom: 0;
+    left: calc(50% - 50px);
+    padding: 0 20px;
+    color: rgba(0, 0, 0, 0.4);
+    font: 600 14px sans-serif;
+    letter-spacing: 1px;
+    text-align: center;
+    background: transparent;
+    margin-bottom: -10px;
+}
+aside.aside-talks>div.new-messages>article p{
+    margin: 30px 0px 20px;
+}
+aside.aside-talks>div.new-messages>article input{
+    width: 710px;
+    height: 52px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    text-indent: 70px;
+    box-sizing: border-box;
+    font:300 16px sans-serif;
+    color: rgba(0, 0, 0, 0.4);
+}
+aside.aside-talks>div.new-messages>article button{
+    width: 52px;
+    height: 52px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    position: absolute;
+    box-sizing: border-box;
+    font:600 20px sans-serif;
+    color: rgba(0, 0, 0, 0.4);
+    background-color: #fdfdfe;
+    cursor: pointer;
+}
+
+

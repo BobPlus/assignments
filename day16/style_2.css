@@ -1,0 +1,51 @@
+html {
+    font: 20px "微软雅黑", sans-serif;
+}
+ul {
+    list-style: none;
+    padding-left: 0;
+}
+span.item-title {
+    font-weight: bolder;
+    padding-right:1rem;
+}
+ul.horizontal-version li {
+    display: inline;
+    padding: 0 2rem 0 0;
+}
+ul.verticle-version li {
+    margin-bottom: 1rem;
+}
+ul.verticle-version li span {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+body>header {
+    float: left;
+    width: 20%;
+    color: white;
+    text-align: center;
+}
+header+section {
+    float: left;
+    width: 78%;
+    padding-left: 2%;
+    background: white;
+}
+body::after {
+    content: "";
+    clear: both;
+    display: block;
+}
+body {
+    background: #65a5fa;
+    margin: 0;  
+}
+button {
+    clear: both;
+    font-size: 1rem;
+    padding: 10px;
+    border-radius: 10px;
+    color: aliceblue;
+    background: #2f435e;
+}

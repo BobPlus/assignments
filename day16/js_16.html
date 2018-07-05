@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>IFE ECMAScript</title>
+</head>
+
+<body>
+    <input id="first-number" type="number" value="0" placeholder="第一个数字">
+    <input id="second-number" type="number" value="0" placeholder="第二个数字">
+    <button id="add-btn">加</button>
+    <button id="minus-btn">减</button>
+    <button id="times-btn">乘</button>
+    <button id="divide-btn">除</button>
+    <p id="result">运算结果</p>
+    <script>
+        var input1 = document.getElementById("first-number");
+        var input2 = document.getElementById("second-number");
+        var plusBtn = document.getElementById("add-btn");
+        var miusBtn = document.getElementById("minus-btn");
+        var timBtn = document.getElementById("times-btn");
+        var divBtn = document.getElementById("divide-btn");
+        var result = document.getElementById("result")
+        function plus() {
+            n1 = parseFloat(input1.value);
+            n2 = parseFloat(input2.value);
+            result.textContent = n1 + n2;
+        }
+        function mius() {
+            n1 = parseFloat(input1.value);
+            n2 = parseFloat(input2.value);
+            result.textContent = n1 - n2;
+        }
+        function time() {
+            n1 = parseFloat(input1.value);
+            n2 = parseFloat(input2.value);
+            result.textContent = n1 * n2;
+        }
+        function div() {
+            n1 = parseFloat(input1.value);
+            n2 = parseFloat(input2.value);
+            result.textContent = n1 / n2;
+        }
+        plusBtn.addEventListener("click", plus);
+        miusBtn.addEventListener("click", mius);
+        timBtn.addEventListener("click", time);
+        divBtn.addEventListener("click", div);
+    </script>
+</body>
+
+</html>

@@ -3,3 +3,4 @@
 2、design 这是实现的第一个设计稿 [demo](https://bobplus.github.io/assignments/day7and8/design.html)
 3、design 这是设计稿实现9-11 [demo](https://bobplus.github.io/assignments/day9and11/beautifulwebsite.html)
 4、design 这是设计稿实现12-15 [demo](https://bobplus.github.io/assignments/day12and15/chat.html)
+5、js 第十六天js作业16 [demo](https://bobplus.github.io/assignments/day16/resume_js.html)

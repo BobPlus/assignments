@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>IFE ECMAScript</title>
+</head>
+
+<body>
+    <input id="dec-number" type="text" placeholder="输入一个十进制非负整数">
+    <input id="bin-bit" type="text" placeholder="输入转化后二进制数字位数">
+    <button id="trans-btn">转化为二进制</button>
+    <p id="result">运算结果</p>
+    <script>
+        let input1 = document.getElementById("dec-number");
+        let input2 = document.getElementById("bin-bit");
+        let result = document.getElementById("result");
+        let button = document.getElementById("trans-btn");
+        let count = 0;
+        let rArray = [];
+        button.addEventListener("click",process,false);
+        function process() {
+            let n1 = input1.value;
+            let n2 = input2.value;
+            count = 0;
+            rArray = [];
+            if(n1.includes("-")||n1.includes(".")||isNaN(n1)){
+                result.textContent = "请在第一栏输入非负整数，作为待处理的十进制数";
+            }else if(n2.includes("-") || n2.includes(".") || isNaN(n2)){
+                result.textContent = "请在第二栏输入非负整数，作为处理后的二进制位数";
+            }else{
+                let p1 = parseInt(n1);
+                let p2 = parseInt(n2);
+                let bin = dec2bin(p1,p2);
+                console.log(bin);
+                result.textContent = bin;
+            }
+        }
+        function dec2bin(decNumber,binBit) {
+            console.log("递归调用了"+ ++count +"次");
+            let quotient = parseInt(decNumber / 2);
+            let remainder = decNumber % 2;
+            rArray.push(remainder);
+            console.log(rArray);
+            if (quotient == 0) {
+                if (rArray.length > binBit) {
+                    let answer = rArray.reverse().join("");
+                    console.log("您输入的处理位数不足，处理结果已经超出并显示");
+                    return answer;
+                }else if(rArray.length == binBit){
+                    let answer = rArray.reverse().join("");
+                    return answer;
+                }else {
+                    let ctr = binBit - rArray.length;
+                    for (let i = 0; i < ctr; i++) {
+                        rArray.push(0);
+                    }
+                    let answer = rArray.reverse().join("");
+                    return answer;
+                } 
+            } else {
+                return dec2bin(quotient, binBit);
+            }
+            // 在这里实现你的转化方法，注意需要判断输入必须为一个非负整数
+        }
+
+// 实现党点击转化按钮时，将输入的十进制数字转化为二进制，并显示在result的p标签内
+// Some coding
+
+    </script>
+</body>
+
+</html>

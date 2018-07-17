@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <input id="name" type="text">
+    <button id="submit-btn">Submit</button>
+    <script>
+        let submitButton = document.getElementById("submit-btn");
+        let textInput = document.getElementById("name");
+        submitButton.addEventListener("click", outPut, false);
+        textInput.addEventListener("keydown", foo, false);
+        function foo(e) {
+            console.log(e.key);
+            switch (e.key) {
+                case "Enter":
+                    outPut();
+                    break;
+                case "Escape":
+                    textInput.value = "";
+                    break;
+                default:
+                    break;
+            }
+        }
+        function outPut() {
+            console.log(textInput.value);
+        }
+
+    </script>
+</body>
+
+</html>

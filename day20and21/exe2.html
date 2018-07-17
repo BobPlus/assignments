@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>IFE ECMAScript</title>
+    <style>
+        .show {
+            display: block;
+        }
+
+        .hide {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <label>
+        <input id="school" name="status" type="radio"> School
+    </label>
+    <label>
+        <input id="company" name="status" type="radio"> Company
+    </label>
+
+    <select id="school-select" class="hide">
+        <option>北京邮电大学</option>
+        <option>黑龙江大学</option>
+        <option>华中科技大学</option>
+    </select>
+
+    <select id="company-select" class="hide">
+        <option>百度</option>
+        <option>爱奇艺</option>
+    </select>
+    <script>
+        let school = document.getElementById("school");
+        let company = document.getElementById("company");
+        let schoolList = document.getElementById("school-select");
+        let companyList = document.getElementById("company-select");
+        document.body.addEventListener("click", process, false);
+        function process(e) {
+            switch (e.target) {
+                case school:
+                    reset();
+                    schoolList.className = "show";
+                    break;
+                case company:
+                    reset();
+                    companyList.className = "show";
+                    break;
+                default:
+                    break;
+            }
+        }
+        function reset() {
+            let selectCollection = document.getElementsByTagName("select");
+            for (let i = 0; i < selectCollection.length; i++) {
+                selectCollection[i].className = "hide";
+            }
+        }
+        //选中一个标签时，先复位样式，然后设置样式
+    </script>
+</body>
+
+</html>

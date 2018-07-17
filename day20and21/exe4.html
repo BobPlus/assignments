@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <div id="fade-obj" style="width:300px;height:300px;background:#000;opacity:1"></div>
+    <button id="fade-btn">淡出</button>
+    <script>
+        let oButton = document.getElementById("fade-btn");
+        let oDiv = document.getElementById("fade-obj");
+        oButton.addEventListener("click", process, false);
+        let timer = null;//setInteral实现需要全局定时器编号
+        let count = 0;//函数调用计数器
+        // function process() {
+        //     if (oButton.innerHTML == "淡出") {
+        //         oButton.setAttribute("disabled", "true");
+        //         setTimeout(fadeOut, 100);
+
+        //     } else {
+        //         oButton.setAttribute("disabled", "true");
+        //         setTimeout(fadeIn, 100);
+        //     }
+        //     function fadeOut() {
+        //         let opacity = Number(oDiv.style.opacity);
+        //         if (opacity > 0) {
+        //             oDiv.style.opacity = opacity - 0.05;
+        //             console.log(oDiv.style.opacity);
+        //             setTimeout(fadeOut, 100);
+        //         }
+        //         else {
+        //             oButton.innerHTML = "淡入";
+        //             oButton.removeAttribute("disabled");
+        //         }
+        //     }
+        //     function fadeIn() {
+        //         let opacity = Number(oDiv.style.opacity);
+        //         if (opacity < 1) {
+        //             oDiv.style.opacity = opacity + 0.05;
+        //             console.log(oDiv.style.opacity);
+        //             setTimeout(fadeIn, 100);
+        //         }
+        //         else {
+        //             oButton.innerHTML = "淡出";
+        //             oButton.removeAttribute("disabled");
+        //         }
+        //     }
+        // }
+        // 以上是setTimeout的实现方法，下面使用setInterval
+        function process() {
+            count = 0;//清空计数器
+            if (oButton.innerHTML == "淡出") {
+                oButton.setAttribute("disabled", "true");
+                timer = setInterval(fadeOut, 100);
+
+            } else {
+                oButton.setAttribute("disabled", "true");
+                timer = setInterval(fadeIn, 100);
+            }
+
+            function fadeOut() {
+                console.log(++count);
+                let opacity = Number(oDiv.style.opacity);
+                if (opacity > 0) {
+                    oDiv.style.opacity = opacity - 0.05;
+                    console.log(oDiv.style.opacity);
+                }
+                else {
+                    oButton.innerHTML = "淡入";
+                    oButton.removeAttribute("disabled");
+                    clearInterval(timer);
+                }
+            }
+
+            function fadeIn() {
+                console.log(++count);
+                let opacity = Number(oDiv.style.opacity);
+                if (opacity < 1) {
+                    oDiv.style.opacity = opacity + 0.05;
+                    console.log(oDiv.style.opacity);
+                }
+                else {
+                    oButton.innerHTML = "淡出";
+                    oButton.removeAttribute("disabled");
+                    clearInterval(timer);
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

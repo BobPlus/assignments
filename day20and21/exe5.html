@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        .container {
+            height: 480px;
+            width: 480px;
+            margin: auto auto;
+            background: url("images/erik.jpg") no-repeat 0px 0px;
+        }
+        button {
+            margin: 10px auto;
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container"></div>
+    <button id="stop">别笑了，歇会儿吧</button>
+    <script>
+        let image = document.getElementsByClassName("container")[0];
+        let oButton = document.getElementById("stop");
+        let timer = null;
+        oButton.onclick = function stop() {
+            clearTimeout(timer);
+        };
+        timer = setTimeout(smile, 100);
+
+        function smile() {
+            let position = getComputedStyle(image, null).getPropertyValue("background-position");
+            let posY = parseInt(position.split(" ")[1]);
+            if (posY < -7600) {
+                posY = 0;
+                image.style.cssText = "background-position:" + 0 + "px" + " " + posY + "px";
+                timer = setTimeout(smile, 100);
+            } else {
+                posY = posY - 480;
+                image.style.cssText = "background-position:" + 0 + "px" + " " + posY + "px";
+                timer = setTimeout(smile, 100);
+            }
+        }
+    </script>
+</body>
+
+</html>

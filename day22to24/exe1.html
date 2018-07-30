@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <div>
+        <label>Number A:
+            <input id="radio-a" type="radio" name="math-obj" value="a">
+        </label>
+        <input id="num-a" type="text">
+        <label>Number B:
+            <input id="radio-b" type="radio" name="math-obj" value="b">
+        </label>
+        <input id="num-b" type="text">
+    </div>
+    <div id="btnCol">
+        <button id="b1">判断当前选中的输入框输入内容是否为数字</button>
+        <button id="b2">把 A 四舍五入为 B 个小数位数的数字</button>
+        <button id="b3">当前选中数字的绝对值</button>
+        <button id="b4">对当前选中的数字进行上舍入</button>
+        <button id="b5">对当前选中的数字进行下舍入</button>
+        <button id="b6">把当前选中的数字四舍五入为最接近的整数</button>
+        <button id="b7">返回 A 和 B 中的最高值</button>
+        <button id="b8">返回 A 和 B 中的最低值</button>
+    </div>
+    <p id="result"></p>
+    <script>
+        let checkedNumber;//选中的数值
+        let result;//输出结果
+        let numA = document.getElementById("num-a");
+        let numB = document.getElementById("num-b");
+        let radioA = document.getElementById("radio-a");
+        let radioB = document.getElementById("radio-b");
+        let btnCol = document.getElementById("btnCol");
+        let oRe = document.getElementById("result");
+        btnCol.addEventListener("click", process, false);
+
+        function process(e) {
+            switch (e.target.id) {
+                case "b1":
+                    check();
+                    break;
+
+                case "b2":
+                    {
+                        let a = numA.value;
+                        let b = numB.value;
+                        let re = /^[1-9]+$/;
+                        validate();
+                        if (!re.test(b)) {
+                            console.log("请在第二个输入框输入一个正整数");
+                            break;
+                        }
+                        let c = Math.pow(10, b);
+                        let s = String(Math.round(a * c));
+                        result = s.slice(0, -b) + "." + s.slice(-b);
+                        oRe.textContent = result;
+                    }
+                    break;
+
+                case "b3":
+                    check();
+                    result = Math.abs(checkedNumber);
+                    oRe.textContent = result;
+                    break;
+
+                case "b4":
+                    check();
+                    result = Math.ceil(checkedNumber);
+                    oRe.textContent = result;
+                    break;
+
+                case "b5":
+                    check();
+                    result = Math.floor(checkedNumber);
+                    oRe.textContent = result;
+                    break;
+
+                case "b6":
+                    check();
+                    result = Math.round(checkedNumber);
+                    oRe.textContent = result;
+                    break;
+
+                case "b7":
+                    {
+                        let a = numA.value;
+                        let b = numB.value;
+                        validate();
+                        result = Math.max(a, b);
+                        oRe.textContent = result;
+                    }
+                    break;
+
+                case "b8":
+                    {
+                        let a = numA.value;
+                        let b = numB.value;
+                        validate();
+                        result = Math.min(a, b);
+                        oRe.textContent = result;
+                    }
+                    break;
+
+                default:
+                    break;
+            }
+        }//检查函数，用以检测用户输入
+
+        function check() {
+            let re = /^(\-|\+)?[0-9]+.?[0-9]*$/;
+            if (radioA.checked) {
+                checkedNumber = numA.value;
+            } else if (radioB.checked) {
+                checkedNumber = numB.value;
+            } else {
+                console.log("你需要先勾选一个数字!");
+                return false;
+            }
+            if (!re.test(checkedNumber)) {
+                console.log("您输入一个数字！");
+            } else {
+                console.log("很好，当前选中的输入框输入内容是数字");
+            }
+        }//有选中时的校验函数
+
+        function validate() {
+            let re = /^(\-|\+)?[0-9]+.?[0-9]*$/;
+            let a = numA.value;
+            let b = numB.value;
+            if (re.test(a) && re.test(b)) {
+                console.log("很好，您输入了两个数值");
+            } else {
+                console.log("请在输入框中输入数值");
+            }
+        }//双数无需选中时的校验函数
+
+
+        //找到选中数值 使用事件委托执行相应操作 switch(e.target.id)
+    </script>
+</body>
+
+</html>

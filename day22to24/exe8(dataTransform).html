@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+
+<body>
+    <script>
+        let scoreObject = {
+            "Tony": {
+                "Math": 95,
+                "English": 79,
+                "Music": 68
+            },
+            "Simon": {
+                "Math": 100,
+                "English": 95,
+                "Music": 98
+            },
+            "Annie": {
+                "Math": 54,
+                "English": 65,
+                "Music": 88
+            }
+        }
+        let menuArr = [
+            [1, "Area1", -1],
+            [2, "Area2", -1],
+            [3, "Area1-1", 1],
+            [4, "Area1-2", 1],
+            [5, "Area2-1", 2],
+            [6, "Area2-2", 2],
+            [7, "Area1-2-3", 4],
+            [8, "Area2-2-1", 6],
+        ];
+        function objToArr(obj) {
+            let arr = [];
+            let arr1 = [];
+            let arr2 = [];
+            for (let i in obj) {
+                arr1.push(i);
+            }
+            for (let i in obj) {
+                arr2.push(obj[i]);
+            }
+            // console.log(arr1);
+            // console.log(arr2);
+            for (let i = 0; i < arr1.length; i++) {
+                let subArr = [];
+                subArr.push(arr1[i]);
+                for (let j in arr2[i]) {
+                    // console.log(arr2[i][j]);
+                    subArr.push(arr2[i][j]);
+                }
+                arr.push(subArr);
+            }
+            return arr;
+        }
+
+        function arr2obj(arr) {
+            let root_obj = {};
+            let id2items_obj = {};
+            let subMenu = {};
+            console.log(root_obj === subMenu);
+            for (let i = 0; i < arr.length; i++) {
+                let item_obj = {};
+                let item_parrent = {};
+                let item_id = arr[i][0];
+                let item_name = arr[i][1];
+                let parrent_id = arr[i][2];
+                item_obj.name = item_name;
+                item_parrent = id2items_obj[parrent_id];
+                if (item_parrent) {
+                    if (!item_parrent.subMenu) {
+                        subMenu = {};
+                        item_parrent.subMenu = subMenu;
+                    } else {
+                        subMenu = item_parrent.subMenu;
+                    }
+                } else {
+                    subMenu = root_obj;
+                }
+                console.log(root_obj === subMenu);
+                subMenu[item_id] = item_obj;
+                id2items_obj[item_id] = item_obj;    
+            }
+            return root_obj;
+        }
+        console.log(objToArr(scoreObject));
+        console.log(arr2obj(menuArr));
+
+
+    </script>
+</body>
+
+</html>

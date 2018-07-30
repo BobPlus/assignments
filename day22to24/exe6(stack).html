@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <input id="stack-input" type="text">
+    <p id="stack-cont">栈内容：apple-gt;pear</p>
+    <div id="btnCol">
+
+        <button id="push-btn">进栈</button>
+        <button id="pop-btn">退栈</button>
+        <button id="font-btn">打印栈顶元素内容</button>
+        <button id="empty-btn">判断栈是否为空</button>
+    </div>
+
+
+    <script>
+
+        let stack = ["apple", "pear"];
+        let stackInput = document.getElementById("stack-input");
+        let stackCont = document.getElementById("stack-cont");
+        let btnCol = document.getElementById("btnCol");
+        btnCol.addEventListener("click", process, false);
+        function process(e) {
+            switch (e.target.id) {
+                case "push-btn":
+                    {
+                        let result;
+                        let value = stackInput.value;
+                        stack.push(value);
+                        result = stack.join(" -> ");
+                        stackCont.textContent = "栈内容： " + result;
+                    }
+                    break;
+
+                case "pop-btn":
+                    {
+                        let result;
+                        stack.pop();
+                        result = stack.join(" -> ");
+                        stackCont.textContent = "栈内容： " + result;
+                    }
+                    break;
+                case "font-btn":
+                    stackCont.textContent = "当前栈顶元素内容： " + stack[stack.length - 1];
+                    break;
+                case "empty-btn":
+                    if (stack.length != 0) {
+                        stackCont.textContent = "当前栈不为空。"
+                    } else {
+                        stackCont.textContent = "当前栈已空。"
+                    }
+                    break;
+                default:
+                    break;
+            }
+        }
+    </script>
+</body>
+
+</html>

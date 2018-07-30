@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <div>
+        <label>String A:
+            <input id="radio-a" type="radio" checked="true" name="str-obj" value="a">
+        </label>
+        <textarea id="str-a"></textarea>
+        <label>String B:
+            <input id="radio-b" type="radio" name="str-obj" value="b">
+        </label>
+        <textarea id="str-b"></textarea>
+        <label>Num A：
+            <input id="num-a" type="number" value="0">
+        </label>
+        <label>Num B：
+            <input id="num-b" type="number" value="1">
+        </label>
+    </div>
+    <div id="btnCol">
+        <button id="b1">获取当前选中输入的内容长度</button>
+        <button id="b2">当前选中输入中的第3个字符</button>
+        <button id="b3">把两个输入框的文字连接在一起输出（concat）</button>
+        <button id="b4">输入B中的内容，在输入A的内容中第一次出现的位置（indexOf）</button>
+        <button id="b5">输入A中的内容，在输入B的内容中最后一次出现的位置（lastIndexOf）</button>
+        <button id="b6">使用slice获取选中输入框内容的部分内容，参数为num-a及num-b</button>
+        <button id="b7">当前选中输入框的行数</button>
+        <button id="b8">使用substr获取选中输入框内容的子字符串，参数为num-a及num-b</button>
+        <button id="b9">把所选输入框中的内容全部转为大写</button>
+        <button id="b10">把所选输入框中的内容全部转为小写</button>
+        <button id="b11">把所选输入框中内容的半角空格全部去除</button>
+        <button id="b12">把所选输入框中内容的a全部替换成另外一个输入框中的内容</button>
+    </div>
+    <p id="result"></p>
+    <script>
+        let sChosen;//选中的那个字符串
+        let radioA = document.getElementById("radio-a");
+        let strA = document.getElementById("str-a");
+        let radioB = document.getElementById("radio-b");
+        let strB = document.getElementById("str-b");
+        let numA = document.getElementById("num-a");
+        let numB = document.getElementById("num-b");
+        let oBtnCol = document.getElementById("btnCol");
+        let oRe = document.getElementById("result");
+        oBtnCol.addEventListener("click", process, false);
+        function checked() {
+            if (radioA.checked) {
+                sChosen = String(strA.value);
+            } else if (radioB.checked) {
+                sChosen = String(strB.value);
+            } else {
+                console.log("你需要先选中一个字符串!");
+                return false;
+            }
+        }
+        function validated() {
+            let re = /^(\-|\+)?[0-9]+.?[0-9]*$/;
+            let obj = {
+                a: numA.value,
+                b: numB.value
+            }
+            if (re.test(obj.a) && re.test(obj.b)) {
+                console.log("很好，您在控制数中输入了两个数值");
+                return obj;
+            } else {
+                console.log("请在输入框中输入数值");
+                return false;
+            }
+        }
+        function process(e) {
+            switch (e.target.id) {
+                case "b1":
+                    checked();
+                    oRe.textContent = sChosen.length;
+                    break;
+
+                case "b2":
+                    checked();
+                    oRe.textContent = sChosen.charAt(2);
+                    break;
+
+                case "b3":
+                    {
+                        let a = String(strA.value);
+                        let b = String(strB.value);
+                        oRe.textContent = a.concat(b);
+                    }
+                    break;
+
+                case "b4":
+                    {
+                        let a = String(strA.value);
+                        let b = String(strB.value);
+                        oRe.textContent = a.indexOf(b);
+                    }
+                    break;
+
+                case "b5":
+                    {
+                        let a = String(strA.value);
+                        let b = String(strB.value);
+                        oRe.textContent = b.lastIndexOf(a);
+                    }
+                    break;
+
+                case "b6":
+                    {
+                        let oPar = validated();
+                        if (oPar) {
+                            checked();
+                            let t = sChosen.slice(oPar.a, oPar.b);
+                            if (t) {
+                                oRe.textContent = t;
+                            }
+                            else {
+                                oRe.textContent = "请为slice函数输入合法的参数！";
+                            }
+                        }
+                    }
+
+                    break;
+                case "b7":
+                    checked();
+                    {
+                        let re = /\n/;
+                        let arr = sChosen.split(re);
+                        oRe.textContent = "输入内容为" + arr.length + "行";
+                    }
+                    break;
+
+                case "b8":
+                    {
+                        let oPar = validated();
+                        if (oPar) {
+                            checked();
+                            let t = sChosen.substr(oPar.a, oPar.b);
+                            if (t) {
+                                oRe.textContent = t;
+                            }
+                            else {
+                                oRe.textContent = "请为substr函数输入合法的参数！";
+                            }
+                        }
+                    }
+
+                    break;
+
+                case "b9":
+                    if (radioA.checked) {
+                        sChosen = String(strA.value);
+                        strA.value = sChosen.toUpperCase();
+                    } else if (radioB.checked) {
+                        sChosen = String(strB.value);
+                        strB.value = sChosen.toUpperCase();
+                    } else {
+                        console.log("你需要先选中一个字符串!");
+                    }
+
+                    break;
+
+                case "b10":
+                    if (radioA.checked) {
+                        sChosen = String(strA.value);
+                        strA.value = sChosen.toLowerCase();
+                    } else if (radioB.checked) {
+                        sChosen = String(strB.value);
+                        strB.value = sChosen.toLowerCase();
+                    } else {
+                        console.log("你需要先选中一个字符串!");
+                    }
+                    break;
+
+                case "b11":
+                    {
+                        let arr;
+                        let r;
+                        if (radioA.checked) {
+                            sChosen = String(strA.value);
+                            arr = sChosen.split(" ");
+                            r = arr.join("");
+                            strA.value = r;
+                        } else if (radioB.checked) {
+                            sChosen = String(strB.value);
+                            arr = sChosen.split(" ");
+                            r = arr.join("");
+                            strB.value = r;
+                        } else {
+                            console.log("你需要先选中一个字符串!");
+                            return false;
+                        }
+                    }
+
+                    break;
+
+                case "b12":
+                    {
+                        let re = /a/g;
+                        let rep;
+                        let newS;
+                        if (radioA.checked) {
+                            sChosen = String(strA.value);
+                            rep = String(strB.value);
+                            newS = sChosen.replace(re, rep);
+                            strA.value = newS;
+                        } else if (radioB.checked) {
+                            sChosen = String(strB.value);
+                            rep = String(strA.value);
+                            newS = sChosen.replace(re, rep);
+                            strB.value = newS;
+                        } else {
+                            console.log("你需要先选中一个字符串!");
+                        }
+                    }
+
+                    break;
+
+                default:
+                    break;
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+
+<body>
+    <p id="show1"></p>
+    <p id="show2"></p>
+    <script>
+        let show1 = document.getElementById("show1");
+        let show2 = document.getElementById("show2");
+        let timer = setInterval(showTime, 1000);
+        function showTime() {
+            let date = new Date();
+            let nowTime1 = date.getFullYear() + "年" + date.getMonth() + "月" + date.getDate() + "日 星期" + week(date) + toDouble(date.getHours()) + ":" + toDouble(date.getMinutes()) + ":" + toDouble(date.getSeconds());
+            let nowTime2 = date.getFullYear() + "-" + toDouble(date.getMonth()) + "-" + toDouble(date.getDate()) + " "+ weekE(date) +" "+ toAmPm(date);
+            show1.textContent = nowTime1;
+            show2.textContent = nowTime2;
+            //输出格式变为：2008-10-10 Monday 07:10:30 PM
+        }
+        function week(date) {
+            let p = date.getDay();
+            let result;
+            switch (p) {
+                case 0:
+                    result = "天";
+                    break;
+                case 1:
+                    result = "一";
+                    break;
+                case 0:
+                    result = "二";
+                    break;
+                case 0:
+                    result = "三";
+                    break;
+                case 0:
+                    result = "四";
+                    break;
+                case 0:
+                    result = "五";
+                    break;
+                case 0:
+                    result = "六";
+                    break;
+                default:
+                    break;
+            }
+            return result;
+        }//转变星期数字到汉字函数
+        function weekE(date) {
+            let p = date.getDay();
+            let result;
+            switch (p) {
+                case 0:
+                    result = "Sunday";
+                    break;
+                case 1:
+                    result = "Monday";
+                    break;
+                case 0:
+                    result = "Tuesday";
+                    break;
+                case 0:
+                    result = "Wednesday";
+                    break;
+                case 0:
+                    result = "Thursday";
+                    break;
+                case 0:
+                    result = "Friday";
+                    break;
+                case 0:
+                    result = "Saturday ";
+                    break;
+                default:
+                    break;
+            }
+            return result;
+        }//转变星期数字到英文函数
+        function toDouble(n) {
+            let result;
+            if (n < 10) {
+                result = "0" + n
+            } else {
+                result = n;
+            }
+            return result;
+        }//补零函数
+        function toAmPm(date) {
+            let hour = date.getHours();
+            let result;
+            if (hour > 12) {
+                result = toDouble(hour - 12) + ":" + toDouble(date.getMinutes()) + ":" + toDouble(date.getSeconds()) + " PM";
+            } else {
+                result = toDouble(hour) + ":" + toDouble(date.getMinutes()) + ":" + toDouble(date.getSeconds()) + " AM";
+            }
+            return result;
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        .show {
+            display: block;
+        }
+
+        .hide {
+            display: none;
+        }
+
+        .mouseover {
+            background-color: pink;
+        }
+
+        .default_selected {
+            background-color: aqua;
+        }
+
+        #email-input {
+            border: 1px solid rgba(0, 0, 0, 0.5);
+            line-height: 1.5em;
+            width: 750px;
+            font: 400 30px sans-serif;
+        }
+
+        .email-sug {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            border-left: 1px solid rgba(0, 0, 0, 0.5);
+            border-right: 1px solid rgba(0, 0, 0, 0.5);
+            line-height: 1.5em;
+            width: 750px;
+            font: 400 30px sans-serif;
+        }
+
+        ul.email-sug>li {
+            border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <input id="email-input" type="text" maxlength="30" autofocus="autofocus">
+        <ul id="email-sug-wrapper" class="email-sug">
+        </ul>
+    </div>
+    <script>
+        window.onload = init;
+        function init() {
+            let postfixList = ['163.com', 'gmail.com', '126.com', 'qq.com', '263.net'];
+            let email_input = document.getElementById("email-input");
+            let email_sug_wrapper = document.getElementById("email-sug-wrapper");
+            let wrapper = document.getElementsByClassName("wrapper")[0];
+            wrapper.addEventListener("input", inputHandler, true);
+            email_sug_wrapper.addEventListener("mouseover", addBackground, false);
+            email_sug_wrapper.addEventListener("click", mouseSelected, false);
+            wrapper.addEventListener("keydown", keySelected2, false);
+            function inputHandler() {
+                let user_input = getUserInput();
+                let sHtml = generateTips(user_input);
+                addWrpperContent(sHtml);
+                controlShowCondition(user_input);
+                email_sug_wrapper.children[0].classList.add("default_selected");
+            }
+            function getUserInput() {
+                let oInput = email_input.value.trim();
+                return oInput;
+            }
+            //拿到input输入框的输入内容trim后返回
+            function generateTips(user_input) {
+                let rString = "";
+                let fontInput = "";
+                let backInput = "";
+                if (user_input.includes("@")) {
+                    fontInput = user_input.split("@")[0];
+                    backInput = user_input.split("@")[1];
+                } else {
+                    fontInput = user_input;
+                }
+                for (let i = 0; i < postfixList.length; i++) {
+                    if (backInput) {
+                        if (postfixList[i].includes(backInput)) {
+                            rString = rString + "<li>" + htmlEncodeByRegExp(fontInput) + "@" + postfixList[i] + "</li>";
+                        }
+                    } else {
+                        rString = rString + "<li>" + htmlEncodeByRegExp(fontInput) + "@" + postfixList[i] + "</li>";
+                    }
+                }
+                return rString;
+            }
+            //生成提示框中的提示内容
+            //不能实现 输入a@2->出现提示框，提示a@263.net、输入a@qq.comm->出现提示框，出现全部提示；
+            function addWrpperContent(sHtml) {
+                email_sug_wrapper.innerHTML = sHtml;
+            }
+            //将提示内容添加到email-sug-wrapper中
+            function controlShowCondition(user_input) {
+                if (!user_input) {
+                    hideTip();
+                } else {
+                    showTip();
+                }
+            }
+            function showTip() {
+                email_sug_wrapper.classList.remove("hide");
+                email_sug_wrapper.classList.add("show");
+            }
+            //显示提示框
+            function hideTip() {
+                email_sug_wrapper.classList.remove("show");
+                email_sug_wrapper.classList.add("hide");
+            }
+            //隐藏提示框；
+
+            function addBackground(e) {
+                let list = email_sug_wrapper.children;
+                for (let i = 0; i < list.length; i++) {
+                    list[i].classList.remove("mouseover");
+                    list[i].classList.remove("default_selected");
+                }
+                e.target.classList.add("mouseover");
+            }
+            //给选中的项目增添背景色
+
+            function mouseSelected(e) {
+                let selected_text = e.target.innerHTML;
+                email_input.value = htmlDecodeByRegExp(selected_text);
+                hideTip();
+                email_input.focus();
+            }
+            function keySelected(e) {
+                let currentSelected = email_sug_wrapper.querySelector(".default_selected");
+                if (!currentSelected) { currentSelected = email_sug_wrapper.getElementsByClassName("mouseover")[0]; }
+                let list = email_sug_wrapper.children;
+                for (let i = 0; i < list.length; i++) {
+                    list[i].classList.remove("mouseover");
+                }
+                switch (e.key) {
+                    case "ArrowDown":
+                        {
+                            if (currentSelected == list[list.length - 1]) {
+                                currentSelected.classList.remove("default_selected");
+                                currentSelected = list[0];
+                                currentSelected.classList.add("default_selected");
+                            } else {
+                                currentSelected.classList.remove("default_selected");
+                                currentSelected = currentSelected.nextSibling;
+                                currentSelected.classList.add("default_selected");
+                            }
+
+                        }
+                        break;
+
+                    case "ArrowUp":
+                        {
+                            if (currentSelected == list[0]) {
+                                currentSelected.classList.remove("default_selected");
+                                currentSelected = list[list.length - 1];
+                                currentSelected.classList.add("default_selected");
+                            } else {
+                                currentSelected.classList.remove("default_selected");
+                                currentSelected = currentSelected.previousSibling;
+                                currentSelected.classList.add("default_selected");
+                            }
+
+                        }
+                        break;
+
+                    case "Enter":
+                        {
+                            let selected_text = currentSelected.innerHTML;
+                            email_input.value = htmlDecodeByRegExp(selected_text);
+                            hideTip();
+                        }
+                        break;
+                    case "Escape":
+                        {
+                            email_input.select();
+                        }
+                        break;
+
+                    default:
+                        break;
+                }
+            }
+            //基于dom的键盘操作实现
+            function keySelected2(e) {
+                let currentSelected = email_sug_wrapper.querySelector(".default_selected");
+                if (!currentSelected) { currentSelected = email_sug_wrapper.getElementsByClassName("mouseover")[0]; }
+                let list = email_sug_wrapper.children;
+                for (let i = 0; i < list.length; i++) {
+                    list[i].classList.remove("mouseover");
+                    list[i].index = i;
+                }
+                let nowIndex = 0;
+                switch (e.key) {
+                    case "ArrowDown":
+                        {
+                            nowIndex = currentSelected.index;
+                            if (nowIndex == list.length - 1) {
+                                currentSelected.classList.remove("default_selected");
+                                currentSelected = list[0];
+                                currentSelected.classList.add("default_selected");
+                            } else {
+                                nowIndex++;
+                                currentSelected.classList.remove("default_selected");
+                                currentSelected = list[nowIndex];
+                                currentSelected.classList.add("default_selected");
+                            }
+
+                        }
+                        break;
+
+                    case "ArrowUp":
+                        {
+                            nowIndex = currentSelected.index;
+                            if (nowIndex == 0) {
+                                currentSelected.classList.remove("default_selected");
+                                currentSelected = list[list.length - 1];
+                                currentSelected.classList.add("default_selected");
+                            } else {
+                                nowIndex--;
+                                currentSelected.classList.remove("default_selected");
+                                currentSelected = list[nowIndex];
+                                currentSelected.classList.add("default_selected");
+                            }
+
+                        }
+                        break;
+
+                    case "Enter":
+                        {
+                            let selected_text = currentSelected.innerHTML;
+                            email_input.value = htmlDecodeByRegExp(selected_text);
+                            hideTip();
+                        }
+                        break;
+
+                    case "Escape":
+                        {
+                            email_input.select();
+                        }
+                        break;
+                    default:
+                        break;
+                }
+            }
+            //基于数据的键盘操作实现
+            function htmlEncodeByRegExp(sHtml) {
+                let s = "";
+                s = sHtml.replace(/&/g, "&amp;");
+                s = s.replace(/>/g, "&gt;");
+                s = s.replace(/</g, "&lt;");
+                return s;
+            }
+            //在插入节点前先进行一次编码
+            function htmlDecodeByRegExp(sHtml) {
+                let s = "";
+                s = sHtml.replace(/&gt;/g, ">");
+                s = s.replace(/&lt;/g, "<");
+                s = s.replace(/&amp;/g, "&");
+                return s;
+            }
+            //在选择内容后进行解码
+        }
+    </script>
+</body>
+
+</html>

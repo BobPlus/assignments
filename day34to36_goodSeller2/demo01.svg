@@ -1,0 +1,24 @@
+<svg version="1.1"
+     baseProfile="full"
+     width="2000" height="2000"
+     xmlns="http://www.w3.org/2000/svg">
+     
+  <line x1="50" x2="200" y1="50" y2="200" stroke="black" stroke-width="5" stroke-linecap="butt"/>
+
+  <rect x="50" y="200" width="250" height="150" stroke="black" fill="red" stroke-width="5"/>
+
+  <circle cx="400" cy="400" r="100" stroke="black" fill="green" stroke-width="5" />
+
+  <text x="400" y="420" font-size="60" text-anchor="middle" fill="black">SVG</text>
+
+  <path d="M800 200 C 790 100, 870 80, 900 180" stroke="red" fill="red"/>
+  <path d="M900 180 C 980 150, 1070 230, 950 270" stroke="red" fill="red"/>
+  <path d="M950 270 C 1050 380, 920 400, 870 340" stroke="red" fill="red"/>
+  <path d="M870 340 C 790 420, 720 350, 770 300" stroke="red" fill="red"/>
+  <path d="M770 300 C 670 300, 720 180, 800 200" stroke="red" fill="red"/>
+  <path d="M800 200 L 900 180 L950 270 L870 340 L770 300 Z" stroke="red" fill="red"/>
+  <path d="M870 343 Q 850 520, 930 680" stroke="green" fill="transparent" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="860" cy="260" r="40" stroke="yellow" fill="yellow"  />
+
+
+</svg>

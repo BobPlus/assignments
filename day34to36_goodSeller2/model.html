@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        table {
+            margin-top: 15px;
+            border-collapse: collapse;
+            border: 1px solid #aaa;
+            width: 100%;
+        }
+
+        table th {
+            vertical-align: baseline;
+            padding: 5px 15px 5px 6px;
+            background-color: #3F3F3F;
+            border: 1px solid #3F3F3F;
+            text-align: center;
+            color: #fff;
+        }
+
+        table td {
+            vertical-align: center;
+            padding: 6px 15px 6px 6px;
+            border: 1px solid #aaa;
+            text-align: center;
+        }
+
+        table tr:nth-child(odd) {
+            background-color: #F5F5F5;
+        }
+
+        table tr:nth-child(even) {
+            background-color: #fff;
+        }
+
+
+
+        legend {
+            background-color: #000;
+            color: #fff;
+            padding: 3px 6px;
+        }
+
+        input {
+            margin: .4rem;
+        }
+
+        .col {
+            float: left;
+            margin-left: 3rem;
+        }
+    </style>
+</head>
+
+<body>
+    <fieldset>
+        <legend>筛选您要查看的商品销售数据</legend>
+        <div class="col">
+            <div>
+                <input type="checkbox" id="all_region" name="region" value="all_region" />
+                <label for="all_region">所有区域</label>
+            </div>
+            <div>
+                <input type="checkbox" id="east" name="region" value="east" />
+                <label for="east">华东</label>
+            </div>
+            <div>
+                <input type="checkbox" id="south" name="region" value="south" />
+                <label for="south">华南</label>
+            </div>
+
+            <div>
+                <input type="checkbox" id="north" name="region" value="north" />
+                <label for="north">华北</label>
+            </div>
+        </div>
+
+        <div class="col">
+            <div>
+                <input type="checkbox" id="all_product" name="product" value="all_region" />
+                <label for="all_product">所有商品</label>
+            </div>
+            <div>
+                <input type="checkbox" id="phone" name="product" value="phone" />
+                <label for="phone">手机</label>
+            </div>
+            <div>
+                <input type="checkbox" id="laptop" name="product" value="laptop" />
+                <label for="laptop">笔记本</label>
+            </div>
+
+            <div>
+                <input type="checkbox" id="speaker" name="product" value="speaker" />
+                <label for="speaker">智能音箱</label>
+            </div>
+        </div>
+
+
+    </fieldset>
+
+    <div>
+        <table>
+            <tr>
+                <th>商品</th>
+                <th>地区</th>
+                <th>1月</th>
+                <th>2月</th>
+                <th>3月</th>
+            </tr>
+            <tr>
+                <td rowspan="3">手机</td>
+                <td>华东</td>
+                <td>100.1</td>
+                <td>100.2</td>
+                <td>100.3</td>
+            </tr>
+            <tr>
+                <!-- 空白 -->
+                <td>华南</td>
+                <td>100.1</td>
+                <td>100.2</td>
+                <td>100.3</td>
+            </tr>
+            <tr>
+                <!-- 空白 -->
+                <td>华北</td>
+                <td>100.1</td>
+                <td>100.2</td>
+                <td>100.3</td>
+            </tr>
+            <tr>
+                <td rowspan="3">笔记本</td>
+                <td>华东</td>
+                <td>100.1</td>
+                <td>100.2</td>
+                <td>100.3</td>
+            </tr>
+            <tr>
+                <!-- 空白 -->
+                <td>华南</td>
+                <td>100.1</td>
+                <td>100.2</td>
+                <td>100.3</td>
+            </tr>
+            <tr>
+                <!-- 空白 -->
+                <td>华北</td>
+                <td>100.1</td>
+                <td>100.2</td>
+                <td>100.3</td>
+            </tr>
+        </table>
+
+
+    </div>
+
+</body>
+
+</html>

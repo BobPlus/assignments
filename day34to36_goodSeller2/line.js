@@ -86,7 +86,7 @@ let line_chart = {
         }
         //画单折线函数
         function drawOnePolyLine() {
-            console.log("画单线啦");
+            // console.log("画单线啦");
             ctx.beginPath();
             ctx.strokeStyle = 'rgb(55,162,218)';
             for (let i = 0; i < this.point_num; i++) {

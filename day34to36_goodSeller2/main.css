@@ -58,3 +58,25 @@
             float: left;
             margin-left: 30px;
         }
+        /*按钮样式*/
+        #button-wrapper {
+            text-align: center;
+        }
+        /*鼠标移入显示可编辑*/
+        #table-wrapper>table th,td{
+            box-sizing: border-box;
+            width: 100px;
+        }
+        #table-wrapper>table td:hover::after{
+            content: "双击编辑";
+            font: 300 12px "微软雅黑";
+            color: rgba(30, 44, 213, 0.8);
+            margin-left: 3px;
+        }
+        #table-wrapper>table td>input{
+            width: 40px;
+        }
+        #table-wrapper>table td button{
+            font: 300 10px "微软雅黑";
+            width: 25px;
+        }

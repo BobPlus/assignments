@@ -54,6 +54,12 @@
             float: left;
             margin-left: 3rem;
         }
+#contABC{
+    background-color: yellow;
+}
+#contDEF{
+background-color: green;
+}
     </style>
 </head>
 
@@ -115,7 +121,7 @@
             <tr>
                 <td rowspan="3">手机</td>
                 <td>华东</td>
-                <td>100.1</td>
+                <td><input type="text" value="100"><button id="confirm">确认</button><button id="cancel">取消</button></td>
                 <td>100.2</td>
                 <td>100.3</td>
             </tr>
@@ -155,9 +161,49 @@
                 <td>100.3</td>
             </tr>
         </table>
-
-
     </div>
+    <div id="wrap">
+        <button id="a">A</button>
+        <button id="b">B</button>
+        <button id="c">C</button>
+
+        <button id="d">D</button>
+        <button id="e">E</button>
+        <button id="f">F</button>
+
+
+        <div id="contABC"></div>
+        <div id="contDEF"></div>
+    </div>
+    <script>
+        window.onload = init;
+
+        function init() {
+            let wrap = document.getElementById("wrap");
+            let contABC = document.getElementById("contABC");
+            let contDEF = document.getElementById("contDEF");
+            wrap.addEventListener("click", setNewHash, false);
+            window.addEventListener("hashchange", renderPage, false);
+
+            function setNewHash(e) {
+                location.hash = `#${e.target.textContent}`;
+                console.log(location);
+            }
+
+            function renderPage() {
+                let hash_value = location.hash.slice(1);
+                if (hash_value === "A" || hash_value === "B" || hash_value === "C") {
+                    // console.log(hash_value);
+                    // console.log(hash_value === "A" || "B" || "C");
+                    contABC.innerHTML = hash_value;
+                    console.log("abc");
+                } else {
+                    contDEF.innerHTML = hash_value;
+                    console.log("def");
+                }
+            }
+        }
+    </script>
 
 </body>
 

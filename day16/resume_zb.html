@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Resume</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        html {
+            font: 20px "微软雅黑", sans-serif;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        span.item-title {
+            font-weight: bolder;
+            padding-right: 1rem;
+        }
+
+        ul.horizontal-version li {
+            display: inline;
+            padding: 0 2rem 0 0;
+        }
+
+        ul.verticle-version li {
+            margin-bottom: 1rem;
+        }
+
+        ul.verticle-version li span {
+            margin-bottom: 0.5rem;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background: #757c75;
+            color: white;
+            height: 5rem;
+            font-size: 0.5rem;
+        }
+
+        header h1 {
+            height: inherit;
+            line-height: 5rem;
+            text-indent: 2rem;
+        }
+
+        article {
+            height: 7rem;
+            border-top: 1px solid #ced3ce;
+            margin-bottom: 1px;
+        }
+
+        article h2 {
+            float: left;
+            background: #ced3ce;
+            height: 7rem;
+            font-size: 1rem;
+            width: 10rem;
+            text-align: center;
+            line-height: 7rem;
+        }
+
+        ul[class*="version"] {
+            margin: 1rem 0 0 11rem;
+        }
+
+        button {
+            clear: both;
+            font-size: 1rem;
+            padding: 5px;
+            border-radius: 5px;
+            color: aliceblue;
+            background: #2f435e;
+        }
+        /* article.contacts li{
+            
+        } */
+
+        article.ability,article.ability>h2{
+            height: 14rem;
+        }
+        article.ability>h2{
+            line-height: 14rem;
+        }
+        article.ability>ul>li ul{
+            margin-left: 6rem;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>简历</h1>
+    </header>
+    <section>
+        <article>
+            <h2>基本信息</h2>
+            <ul class="horizontal-version">
+                <li>
+                    <span class="item-title">姓名</span>张博</li>
+                <li>
+                    <span class="item-title">性别</span>男</li>
+                <li>
+                    <span class="item-title">应聘职位</span>Web开发</li>
+            </ul>
+        </article>
+        <article class="contacts">
+            <h2>联系方式</h2>
+            <ul class="horizontal-version">
+                <li>
+                    <span class="item-title">手机</span>
+                    <a href="tel:17723115964">17723115964</a>
+                </li>
+                <li>
+                    <span class="item-title">Email</span>
+                    <a href="mailto:625750414@qq.com">625750414@qq.com</a>
+                </li>
+                <li>
+                    <span class="item-title">Github</span>
+                    <a href="https://github.com/BobPlus">https://github.com/BobPlus</a>
+                </li>
+            </ul>
+        </article>
+        <article class="ability">
+            <h2>能力描述</h2>
+            <ul class="verticle-version">
+                <li>
+                    <span class="item-title">技术能力</span><ul>
+                        <li>掌握前端开发语言HTML、CSS、JS</li>
+                        <li>了解前端开发框架Jquery、后端开发语言PHP</li>
+                    </ul></li>
+                <li>
+                    <span class="item-title">综合能力</span><ul>
+                        <li>气田生产运行经验，对气田信息系统开发需求有一定的认识</li>
+                        <li>良好地英语口语、阅读能力</li>
+                    </ul></li>
+            </ul>
+        </article>
+        <article>
+            <h2>教育经历</h2>
+            <ul class="verticle-version">
+                <li>
+                    <span class="item-title">本科</span>郑州大学——计算机科学与技术专业</li>
+                <li>
+                    <span class="item-title">硕士</span>西安石油大学——石油与天然气工程专业</li>
+            </ul>
+        </article>
+        <article>
+            <h2>学习经历</h2>
+            <ul class="verticle-version">
+                <li>
+                    <span class="item-title">网易初级前端开发工程师微专业</span>已完成所有课程并取得结业证书</li>
+                <li>
+                    <span class="item-title">百度前端技术学院零基础学院</span>已完成90%的开发内容，已同步至Git</li>
+            </ul>
+        </article>
+        <article>
+            <h2>兴趣爱好</h2>
+            <ul class="verticle-version">
+                <li class="interest">
+                    <span class="item-title">兴趣</span>阅读</li>
+                <li class="hobby">
+                    <span class="item-title">爱好</span>篮球、跑步等</li>
+            </ul>
+        </article>
+    </section>
+</body>
+
+</html>

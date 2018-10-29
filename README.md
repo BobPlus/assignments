@@ -4,6 +4,6 @@
 3、design 这是设计稿实现9-11 [demo](https://bobplus.github.io/assignments/day9and11/beautifulwebsite.html)
 4、design 这是设计稿实现12-15 [demo](https://bobplus.github.io/assignments/day12and15/chat.html)
 5、js 第十六天js作业16 [demo](https://bobplus.github.io/assignments/day16/resume_js.html)
-6、一份简历 [demo](https://bobplus.github.io/assignments/day16/resume.html)
+6、一份简历 [demo](https://bobplus.github.io/assignments/day16/resume_zb.html)
 7、精明小卖家一 [demo](https://bobplus.github.io/assignments/day31to33_goodSeller/goodSalseman.html)
 
